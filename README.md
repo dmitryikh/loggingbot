@@ -111,7 +111,7 @@ with open(os.path.expanduser('~/Downloads/kittens.jpg')) as fin:
     logger.info('Everyone loves kittens!', extra={'bot': True, 'image': fin})
 ```
 
-    INFO:myapp:Everyone loves kittens!
+> INFO:myapp:Everyone loves kittens!
 
 
 
