@@ -49,7 +49,7 @@ Everything is setup! Let's just use it! In order to send the message to bot you 
 logger.info('My Application is launched', extra={'bot': True})
 ```
 
-    INFO:myapp:My Application is launched
+> INFO:myapp:My Application is launched
 
 
 
@@ -60,7 +60,7 @@ except Exception as e:
     logger.error("Huston, we've got a problem: %s", str(e), extra={'bot': True})
 ```
 
-    ERROR:myapp:Huston, we've got a problem: integer division or modulo by zero
+> ERROR:myapp:Huston, we've got a problem: integer division or modulo by zero
 
 
 By the way, you can skip message to be sent to bot by avoiding `bot` key in `extra` dictionary.
@@ -70,7 +70,7 @@ By the way, you can skip message to be sent to bot by avoiding `bot` key in `ext
 logger.info('This message will not be sent to bot')
 ```
 
-    INFO:myapp:This message will not be sent to bot
+> INFO:myapp:This message will not be sent to bot
 
 
 The nice thing that you can send to chat not only text but text along with multimedia: **images, files and even matplotlib's figures**!
@@ -96,7 +96,7 @@ plt.scatter(x, y, s=area, c=colors, alpha=0.5)
 logger.info('Sending an image..', extra={'bot': True, 'figure': plt.gcf()})
 ```
 
-    INFO:myapp:Sending an image..
+> INFO:myapp:Sending an image..
 
 
 
@@ -119,7 +119,7 @@ with open(os.path.expanduser('~/Downloads/kittens.jpg')) as fin:
 logger.fatal('Catch the dump!', extra={'bot': True, 'file': '~/coredump.txt'})
 ```
 
-    CRITICAL:myapp:Catch the dump!
+> CRITICAL:myapp:Catch the dump!
 
 
 ## How it looks like in Telegram
