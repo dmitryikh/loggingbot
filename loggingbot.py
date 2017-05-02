@@ -6,6 +6,7 @@ import uuid
 import json
 import StringIO
 
+MAX_TELEGRAM_MESSAGE = 4096
 
 class ToFolderHandler(logging.Handler):
     """
@@ -83,9 +84,13 @@ class TelegramBotHandler(logging.StreamHandler):
         if ('bot' in record.__dict__) and record.__dict__['bot']:
             self.stream = StringIO.StringIO()
             logging.StreamHandler.emit(self, record)
+            # Truncate message to Telegram's max length
+            message = self.stream.getvalue()[:MAX_TELEGRAM_MESSAGE]
+            self.stream.close()
+            self.stream = None
             try:
                 if self._bot:
                     for id in self.bot_users:
-                        self._bot.send_message(id, self.stream.getvalue())
+                        self._bot.send_message(id, message)
             except:
                 self.handleError(record)
