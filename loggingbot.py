@@ -2,7 +2,10 @@
 
 import os
 import logging
-import StringIO
+try:
+    from StringIO import StringIO
+except ImportError:
+    from io import StringIO
 from io import BytesIO
 
 MAX_TELEGRAM_MESSAGE = 4096
