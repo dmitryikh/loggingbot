@@ -111,3 +111,8 @@ class TelegramBotHandler(logging.StreamHandler):
     def _adjust_dpi(self, f):
         w, h = f.get_size_inches()
         return self.figure_width / w * 1.065
+
+    def is_ready(self):
+        """External health check on the connection to the TeleBot"""
+        # TODO: Add additional check; tokens ok, chat not found etc
+        return self._bot is not None
